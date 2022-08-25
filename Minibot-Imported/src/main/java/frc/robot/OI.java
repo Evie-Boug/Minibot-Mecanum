@@ -17,7 +17,7 @@ public class OI {
     public static XboxController Driver = new XboxController(0);
 
     public static double getSpeed () {
-        return ((Driver.getLeftTriggerAxis() - Driver.getRightTriggerAxis()) * 0.8);
+        return ((Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) * 0.8);
     }
 
     public static double getTurn () {
