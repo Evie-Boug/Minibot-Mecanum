@@ -21,7 +21,7 @@ public class OI {
     }
 
     public static double getTurn () {
-        return (Driver.getRawAxis(0)) * 0.3;
+        return (Driver.getRawAxis(0)) * 0.75;
     }
 
     public static boolean getSlow () {
