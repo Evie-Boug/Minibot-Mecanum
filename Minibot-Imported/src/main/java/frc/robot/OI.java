@@ -8,16 +8,18 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.shuffleboard.*;
+import frc.robot.Robot;
+
 
 /**
  * Add your docs here
  */
 public class OI {
-
     public static XboxController Driver = new XboxController(0);
-
     public static double getSpeed () {
-        return ((Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) * 0.8);
+        return ((Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) * Robot.m_Chooser.getSelected());
     }
 
     public static double getTurn () {

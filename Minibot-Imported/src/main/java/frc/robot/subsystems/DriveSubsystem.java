@@ -44,7 +44,7 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void ArcadeDrive (double speed, double turn) {
-    TankDrive((speed - turn) * 0.25, (speed + turn) * 0.25);
+    TankDrive((speed - turn) * 0.5, (speed + turn) * 0.5);
   }
 
 }

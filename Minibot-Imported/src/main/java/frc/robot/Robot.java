@@ -14,6 +14,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +30,8 @@ public class Robot extends TimedRobot {
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static DriveCommand DriveCommand = new DriveCommand();
 
+  public static SendableChooser<Double> m_Chooser = new SendableChooser<>();
+
   public static UsbCamera Camera;
 
   /**
@@ -35,8 +40,15 @@ public class Robot extends TimedRobot {
    */
   public void robotInit() {
     Camera = CameraServer.startAutomaticCapture(0);
+    m_Chooser.setDefaultOption("Lowspeed", 0.5);
+    m_Chooser.addOption("Highspeed", 1.0);
+    SmartDashboard.putData(m_Chooser);
   }
 
+  public Double getSpeedValue()
+  {
+    return m_Chooser.getSelected();
+  }
   /**
    * This function is called every robot packet, no matter the mode. Use
    * this for items like diagnostics that you want ran during disabled,
